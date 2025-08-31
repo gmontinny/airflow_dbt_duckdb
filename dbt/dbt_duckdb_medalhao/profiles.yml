@@ -1,0 +1,7 @@
+dbt_duckdb_medalhao:
+  outputs:
+    dev:
+      type: duckdb
+      path: target/duckdb.db
+      schema: main
+  target: dev

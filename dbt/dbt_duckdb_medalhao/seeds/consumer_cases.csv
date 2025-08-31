@@ -1,0 +1,7 @@
+case_id,consumer_name,product,issue,date_reported,company,status,resolution_date,violation_type,compensation_amount,updated_at
+1,John Doe,Credit Card,Billing dispute,2024-01-05,Acme Bank,Resolved,2024-01-10,Privacy,50.00,2024-01-10 12:00:00
+1,John Doe,Credit Card,Billing dispute,2024-01-05,Acme Bank,In Progress,,Privacy,0.00,2024-01-09 08:00:00
+2,Jane Smith,Mortgage,Interest rate error,2024-02-12,HomeFirst,Resolved,2024-02-20,Disclosure,100.00,2024-02-20 09:30:00
+3,Bob Lee,Checking Account,Unauthorized withdrawal,2024-03-15,Acme Bank,Open,,Security,0.00,2024-03-15 14:45:00
+4,Ana Silva,Personal Loan,Prepayment penalty,2024-04-01,LendWell,Resolved,2024-04-05,Terms,75.50,2024-04-05 11:15:00
+5,Carlos Souza,Auto Loan,Incorrect balance,2024-05-22,DriveFinance,Open,,Accuracy,0.00,2024-05-22 16:00:00

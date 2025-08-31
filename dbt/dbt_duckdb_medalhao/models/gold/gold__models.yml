@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: gold_consumer_cases_summary
+    description: "Métricas agregadas prontas para negócio por empresa e produto a partir da camada silver"
+    columns:
+      - name: company
+        description: Nome da empresa
+        tests:
+          - not_null
+      - name: product
+        description: Nome do produto
+        tests:
+          - not_null
+      - name: total_cases
+        description: Número total de casos
+        tests:
+          - not_null
+      - name: resolved_cases
+        description: Número de casos resolvidos
+      - name: open_or_in_progress_cases
+        description: Número de casos abertos ou em andamento
+      - name: total_compensation
+        description: Soma dos valores de compensação
+      - name: last_update
+        description: Carimbo de data/hora mais recente entre os registros incluídos

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: silver_consumer_cases
+    description: tabela silver materializada
+    columns:
+    - name: case_id
+      description: ID único do caso 
+      tests:
+        - not_null
+        - unique

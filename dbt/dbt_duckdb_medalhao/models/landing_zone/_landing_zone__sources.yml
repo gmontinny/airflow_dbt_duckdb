@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: landing_zone
+    schema: landing_zone
+    description: Demo dbt + DuckDB medallion
+    tables:
+      - name: consumer_cases
+        description: tabela que armazena informação de avaliações de usuários.
+        columns:
+          - name: case_id
+            description: ID do caso 
+          - name: consumer_name
+            description: Nome do consumidor
+          - name: product
+            description: Produto envolvido
+          - name: issue
+            description: Problema relatado
+          - name: date_reported
+            description: Data de relatório
+          - name: company
+            description: Empresa envolvida
+          - name: status
+            description: Status do caso
+          - name: resolution_date
+            description: Data de resolução
+          - name: violation_type
+            description: Tipo de violação
+          - name: compensation_amount
+            description: Valor da compensação
+          - name: updated_at
+            description: Data de atualização

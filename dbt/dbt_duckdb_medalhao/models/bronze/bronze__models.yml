@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: bronze_consumer_cases
+    description: tabela resumida com apenas o ultimo status
+    columns:
+    - name: case_id
+      description: ID único do caso 
+      tests:
+        - not_null
+        - unique
