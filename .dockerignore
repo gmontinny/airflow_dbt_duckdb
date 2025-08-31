@@ -1,15 +1,14 @@
-# Airflow
-/logs
-/plugins
-/config
+# Logs
+logs/
+*.log
 
-# dbt
+# dbt generated files
 dbt/*/target/
 dbt/*/dbt_packages/
 dbt/*/logs/
 dbt/*/.user.yml
 
-# DuckDB
+# Database files
 *.db
 *.duckdb
 
@@ -18,7 +17,6 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
 
 # IDE
 .vscode/
@@ -29,3 +27,11 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+ARTIGO_*

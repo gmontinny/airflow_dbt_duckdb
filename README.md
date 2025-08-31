@@ -56,12 +56,61 @@ A partir de `dbt/dbt_duckdb_medalhao`:
 - Abra o Airflow em http://localhost:8080, habilite e dispare a DAG `dbt_medallion_pipeline`.
 - A DAG executa as tarefas na ordem: dbt_deps -> dbt_seed -> dbt_run_medallion -> dbt_test.
 
+## Estrutura do Projeto
+
+Após limpeza e otimização, a estrutura final do projeto:
+
+```
+airflow_and_dbt/
+├── dags/
+│   └── dbt_medallion_dag.py
+├── dbt/
+│   └── dbt_duckdb_medalhao/
+│       ├── macros/
+│       │   └── generate_schema_name.sql
+│       ├── models/
+│       │   ├── bronze/
+│       │   ├── silver/
+│       │   ├── gold/
+│       │   └── landing_zone/
+│       ├── seeds/
+│       │   └── consumer_cases.csv
+│       ├── dbt_project.yml
+│       ├── profiles.yml
+│       └── README.md
+├── .dockerignore
+├── .gitignore
+├── docker-compose.yaml
+├── Dockerfile
+├── README.md
+├── ARTIGO_AIRFLOW_DBT_DUCKDB.md
+└── requirements.txt
+```
+
 ## Correções Aplicadas
 - **Conflito de dependências**: Removido o arquivo de constraints do Airflow que causava conflito entre `protobuf==4.25.6` (Airflow) e `protobuf>=5.0` (dbt-core>=1.8.1).
 - **Comando dbt não encontrado**: Atualizada a DAG para usar o caminho completo `/home/airflow/.local/bin/dbt` em vez de apenas `dbt`.
 - **Versões compatíveis**: Fixadas versões `dbt-core>=1.8.1,<1.9.0` e `dbt-duckdb>=1.8.2` no requirements.txt.
+- **Limpeza do projeto**: Removidos arquivos gerados automaticamente (target/, dbt_packages/, logs/) e criados .gitignore e .dockerignore otimizados.
+
+## Arquivos de Configuração
+
+### .gitignore
+Configura o Git para ignorar:
+- Logs do Airflow e dbt
+- Arquivos gerados pelo dbt (target/, dbt_packages/)
+- Bancos de dados DuckDB
+- Arquivos Python compilados
+- Configurações de IDE
+
+### .dockerignore
+Otimiza builds do Docker ignorando:
+- Documentação e logs
+- Arquivos gerados automaticamente
+- Configurações locais
 
 ## Observações
 - O modelo Silver usa incremental (merge) no DuckDB com chave `case_id`.
 - Schemas (landing_zone, bronze, silver, gold) serão criados automaticamente pelo dbt no arquivo DuckDB, se não existirem.
 - Aviso de compatibilidade entre dbt-core e dbt-duckdb é esperado, mas não afeta o funcionamento.
+- Projeto otimizado para desenvolvimento e produção com arquivos desnecessários removidos.
